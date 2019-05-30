@@ -4,6 +4,7 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
+from app.models import Post
 
 
 @app.route('/')
@@ -12,7 +13,7 @@ from app.models import User
 def index():
     posts = [
         {
-            'author': {'username': 'Серега'},
+            'author': {'username': Post.query.get(1)},
             'body': 'на точке'
         },
         {
